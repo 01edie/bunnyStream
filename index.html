@@ -4,6 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Syscon | Bunny CDN Stream</title>
+    <style>
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      input[type="radio"] {
+        margin-right: 10px;
+      }
+      .submit-button {
+        margin: 16px 0px;
+      }
+    </style>
   </head>
   <body style="min-height: 90vh; background-color: #efefef; padding: 24px">
     <h2 style="text-align: center; margin-bottom: 48px">
@@ -34,102 +56,109 @@
           "
           allow="accelerometer;gyroscope;encrypted-media;picture-in-picture;"
           allowfullscreen="true"
+          name="abc"
         ></iframe>
       </div>
     </div>
-    <div
-      style="
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 24px;
-      "
-    >
-      <div>
-        <h2 style="margin: 24px 0px">The World Is Just Awesome (Expired)</h2>
-      </div>
-      <div style="position: relative; max-width: 600px; height: 340px">
-        <iframe
-          src="https://iframe.mediadelivery.net/embed/234831/ae926856-71c6-4c5d-88bf-d81f9deefec2?token=aac85026bcd6f11f336b3d237eed01381ac7575100ccbc296714afaa419e6df8&expires=1714197000&loop=false&muted=false&preload=true&responsive=true"
-          loading="lazy"
-          style="
-            border: 0;
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 100%;
-          "
-          allow="accelerometer;gyroscope;encrypted-media;picture-in-picture;"
-          allowfullscreen="true"
-        ></iframe>
-      </div>
+    <div style="margin-top: 16px">
+      Current time: <span id="current-time">0</span> s
     </div>
 
-    <div
-      style="
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 24px;
-      "
-    >
-      <div>
-        <h2 style="margin: 24px 0px">A Real Bug's Life</h2>
-      </div>
-      <div style="position: relative; max-width: 600px; height: 340px">
-        <iframe
-          src="https://iframe.mediadelivery.net/embed/234831/b735f394-b408-4016-97ad-94b27312a36c?token=30681ee5e758f2dcd5e155fc064b564967d8141083cef84013986bea13dd4649&expires=1714539058&autoplay=true&loop=false&muted=false&preload=true&responsive=false"
-          loading="lazy"
-          style="
-            border: 0;
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 100%;
-          "
-          allow="accelerometer;gyroscope;encrypted-media;picture-in-picture;"
-          allowfullscreen="true"
-        ></iframe>
-      </div>
+    <div id="message" style="margin: 16px 0px; display: none">
+      <h3>Thank you for watching the video 🥳</h3>
     </div>
 
-    <div
-      style="
-        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-          rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-          rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 24px;
-      "
-    >
-      <div>
-        <h2 style="margin: 24px 0px">A Real Bug's Life (Invalid Token)</h2>
-      </div>
-      <div style="position: relative; max-width: 600px; height: 340px">
-        <iframe
-          src="https://iframe.mediadelivery.net/embed/234831/b735f394-b408-4016-97ad-94b27312a36c?token=5529248b1e4fcebafa929d45a2cc723e8f679fd6f66c3758cf2852af5a8a9358&expires=1714278834&loop=false&muted=false&preload=true&responsive=true"
-          loading="lazy"
-          style="
-            border: 0;
-            position: absolute;
-            top: 0;
-            height: 100%;
-            width: 100%;
-          "
-          allow="accelerometer;gyroscope;encrypted-media;picture-in-picture;"
-          allowfullscreen="true"
-        ></iframe>
-      </div>
+    <div id="quiz-root" style="display: none">
+      <h1>Who loves the dirty things?</h1>
+      <form id="quiz">
+        <ul>
+          <li>
+            <input type="radio" name="answer" id="answer1" value="mike rowe" />
+            <label for="answer1">Mike Rowe</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="answer"
+              id="answer2"
+              value="bear grylls"
+            />
+            <label for="answer2">Bear Grylls</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="answer"
+              id="answer3"
+              value="chimney sweep"
+            />
+            <label for="answer3">Chimney Sweep</label>
+          </li>
+          <li>
+            <input
+              type="radio"
+              name="answer"
+              id="answer4"
+              value="sanitation worker"
+            />
+            <label for="answer4">Sanitation Worker</label>
+          </li>
+        </ul>
+        <button class="submit-button" type="submit">Submit Answer</button>
+      </form>
     </div>
 
     <h3 style="text-align: center; margin-top: 64px; color: rgb(73, 73, 73)">
       Sys-Con Engineering
     </h3>
+
+    <script
+      type="text/javascript"
+      src="//assets.mediadelivery.net/playerjs/player-0.1.0.min.js"
+    ></script>
+    <script>
+      const form = document.getElementById("quiz");
+      const quizComponent = document.getElementById("quiz-root");
+      const timer = document.getElementById("current-time");
+      const message = document.getElementById("message");
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const iframes = document.querySelectorAll("iframe");
+        console.log(iframes);
+
+        iframes.forEach((iframe) => {
+          // const player = new playerjs.Receiver(iframe);
+          const player = new playerjs.Player(iframe);
+          console.log(player);
+          // console.log("support", player.supports("method", "ended"));
+          // console.log(player.supports("event", "ended"));
+          console.log(player.supports("event", "timeupdate"));
+          player.on("timeupdate", () => {
+            player.getCurrentTime((v) => {
+              timer.innerText = v.toFixed(2);
+              console.log(v);
+            });
+          });
+          // player.on("ready", () => player.play());
+          player.on("ended", () => {
+            quizComponent.style.display = "block";
+            console.log("video ended");
+            message.style.display = "block";
+            setTimeout(() => {
+              timer.innerText = 0;
+            }, 500);
+          });
+          player.on("play", () => {
+            if (quizComponent.style.display === "block") {
+              quizComponent.style.display = "none";
+              message.style.display = "none";
+            }
+          });
+        });
+      });
+    </script>
   </body>
 </html>
